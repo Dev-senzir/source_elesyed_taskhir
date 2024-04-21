@@ -214,25 +214,25 @@ def gen_user(choice):
             pass
     return username
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
         
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
     if ispay2[0] == "yes":
-        await senzir.send_file(event.chat_id, 'banned.txt')
+        await sython.send_file(event.chat_id, 'banned.txt')
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker2)
 # صيد عدد نوع قناة
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         isclaim.clear()
@@ -243,7 +243,7 @@ async def _(event):
         trys = 0
         await event.edit(f"حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-        @senzir.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @sython.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
@@ -268,24 +268,24 @@ async def _(event):
             if "Available" in isav:
                 await asyncio.sleep(1)
                 try:
-                    await senzir(functions.channels.UpdateUsernameRequest(
+                    await sython(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
                     await event.client.send_message(event.chat_id, f'''
 𝐔𝐒𝐄𝐑 : @{username}        
-CH /@programer_senzir - @Source_elesyed
+CH /@programer_sython - @Source_elesyed
     ''')
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
                 except Exception as eee:
-                    await senzir.send_message(event.chat_id, f'''خطأ مع {username}
+                    await sython.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await senzir.send_message(event.chat.id, " اجاك متاح !")
+                        await sython.send_message(event.chat.id, " اجاك متاح !")
             else:
                 pass
             trys += 1
@@ -295,7 +295,7 @@ CH /@programer_senzir - @Source_elesyed
         trys = ""
         await event.client.send_message(event.chat_id, "! انتهى الصيد")
         
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         trys = 0
@@ -308,7 +308,7 @@ async def _(event):
             ch = str(msg[1])
             await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-            @senzir.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت التلقائي"))
+            @sython.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت التلقائي"))
             async def _(event):
                 if "on" in isauto:
                     msg = await event.edit(f"التثبيت وصل لـ({trys}) من المحاولات")
@@ -326,7 +326,7 @@ async def _(event):
                 isav = que.get()
                 if "Available" in isav:
                     try:
-                        await senzir(functions.channels.UpdateUsernameRequest(
+                        await sython(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
                         await event.client.send_message(event.chat_id, f'''
 𝐔𝐒𝐄𝐑 : @{username}        
@@ -339,7 +339,7 @@ CH /@programer_senzir - @Source_elesyed
                         break
                     except Exception as eee:
 
-                        await senzir.send_message(event.chat_id, f'''خطأ مع {username}
+                        await sython.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                         if "A wait of" in str(eee):
@@ -352,14 +352,14 @@ CH /@programer_senzir - @Source_elesyed
             trys = ""
             isclaim.clear()
             isclaim.append("off")
-            await senzir.send_message(event.chat_id, "تم الانتهاء من التثبيت التلقائي")
+            await sython.send_message(event.chat_id, "تم الانتهاء من التثبيت التلقائي")
         if msg[0] == "يدوي":  # تثبيت يدوي يوزر قناة
             await event.edit(f"حسناً سأحاول تثبيت `{username}` على `{ch}` !")
             msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
             username = str(msg[0])
             ch = str(msg[1])
             try:
-                await senzir(functions.channels.UpdateUsernameRequest(
+                await sython(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
                 await event.client.send_message(event.chat_id, f'''
 𝐔𝐒𝐄𝐑 : @{username}        
@@ -368,7 +368,7 @@ CH /@programer_senzir - @Source_elesyed
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
             except Exception as eee:
-                await senzir.send_message(event.chat_id, f'''خطأ مع {username}
+                await sython.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
 Threads=[] 
