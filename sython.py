@@ -34,7 +34,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
 # -
 
-senzir.start()
+sython.start()
 c = requests.session()
 bot_username = '@zmmbot'
 bot_usernamee = '@A_MAN9300BOT'
@@ -61,18 +61,18 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await senzir(JoinChannelRequest("@RRJRJ"))
+        await sython(JoinChannelRequest("@RRJRJ"))
     except BaseException:
         pass
 
 
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
 async def _(event):
     await event.edit(commands)
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit("جارٍ...")
@@ -93,55 +93,55 @@ async def _(event):
 ''')
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec1)
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec2)
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec3)
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec4)
 
     
 ownerhson_id = 1041483862
-@senzir.on(events.NewMessage(outgoing=False, pattern='فزعه'))
+@sython.on(events.NewMessage(outgoing=False, pattern='فزعه'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
         order = await event.reply('ابشر هنا الاسياد😎')
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
     await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
-    await senzir.disconnect()
-    await senzir.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
+    await sython.disconnect()
+    await sython.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع المليار"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع المليار"))
 async def _(event):
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
-        channel_entity = await senzir.get_entity(bot_username)
-        await senzir.send_message('@zmmbot', 'جاري التجميع بواسطة | 𝒆𝒍𝒆𝒔𝒚𝒆𝒅 𝒕𝒆𝒂𝒎⛤')
-        channel_entity = await senzir.get_entity(bot_username)
-        await senzir.send_message('@zmmbot', '/start')
+        channel_entity = await sython.get_entity(bot_username)
+        await sython.send_message('@zmmbot', 'جاري التجميع بواسطة | 𝒆𝒍𝒆𝒔𝒚𝒆𝒅 𝒕𝒆𝒂𝒎⛤')
+        channel_entity = await sython.get_entity(bot_username)
+        await sython.send_message('@zmmbot', '/start')
         await asyncio.sleep(5)
-        msg0 = await senzir.get_messages('@zmmbot', limit=1)
+        msg0 = await sython.get_messages('@zmmbot', limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(5)
-        msg1 = await senzir.get_messages('@zmmbot', limit=1)
+        msg1 = await sython.get_messages('@zmmbot', limit=1)
         await msg1[0].click(0)
 
         chs = 1
@@ -149,44 +149,44 @@ async def _(event):
 
             await asyncio.sleep(5)
 
-            list = await senzir(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                await senzir.send_message(event.chat_id, f"لايوجد قنوات  في البوت | SY")
+                await sython.send_message(event.chat_id, f"لايوجد قنوات  في البوت | SY")
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    await senzir(JoinChannelRequest(url))
+                    await sython(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    await senzir(ImportChatInviteRequest(bott))
-                msg2 = await senzir.get_messages('@zmmbot', limit=1)
+                    await sython(ImportChatInviteRequest(bott))
+                msg2 = await sython.get_messages('@zmmbot', limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 
             except:
-                await senzir.send_message(event.chat_id, f"خطأ من المحتمل تم حظر الانضمام ")
+                await sython.send_message(event.chat_id, f"خطأ من المحتمل تم حظر الانضمام ")
                 break
-        await senzir.send_message(event.chat_id, "تم الانتهاء من التجميع !")
+        await sython.send_message(event.chat_id, "تم الانتهاء من التجميع !")
 
 
 ##################
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع الجوكر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع الجوكر"))
 async def _(event):
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
-        channel_entity = await senzir.get_entity(bot_usernamee)
-        await senzir.send_message('@A_MAN9300BOT', 'جاري التجميع بواسطة | 𝒆𝒍𝒆𝒔𝒚𝒆𝒅 𝒕𝒆𝒂𝒎⛤')
-        channel_entity = await senzir.get_entity(bot_usernamee)
-        await senzir.send_message('@A_MAN9300BOT', '/start')
+        channel_entity = await sython.get_entity(bot_usernamee)
+        await sython.send_message('@A_MAN9300BOT', 'جاري التجميع بواسطة | 𝒆𝒍𝒆𝒔𝒚𝒆𝒅 𝒕𝒆𝒂𝒎⛤')
+        channel_entity = await sython.get_entity(bot_usernamee)
+        await sython.send_message('@A_MAN9300BOT', '/start')
         await asyncio.sleep(5)
-        msg0 = await senzir.get_messages('@A_MAN9300BOT', limit=1)
+        msg0 = await sython.get_messages('@A_MAN9300BOT', limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(5)
-        msg1 = await senzir.get_messages('@A_MAN9300BOT', limit=1)
+        msg1 = await sython.get_messages('@A_MAN9300BOT', limit=1)
         await msg1[0].click(0)
 
         chs = 1
@@ -194,27 +194,27 @@ async def _(event):
 
             await asyncio.sleep(5)
 
-            list = await senzir(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                await senzir.send_message(event.chat_id, f"لايوجد قنوات  في البوت | SY")
+                await sython.send_message(event.chat_id, f"لايوجد قنوات  في البوت | SY")
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    await senzir(JoinChannelRequest(url))
+                    await sython(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    await senzir(ImportChatInviteRequest(bott))
-                msg2 = await senzir.get_messages('@A_MAN9300BOT', limit=1)
+                    await sython(ImportChatInviteRequest(bott))
+                msg2 = await sython.get_messages('@A_MAN9300BOT', limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
                 
             except:
-                await senzir.send_message(event.chat_id, f"خطأ من المحتمل تم حظر الانضمام ")
+                await sython.send_message(event.chat_id, f"خطأ من المحتمل تم حظر الانضمام ")
                 break
-        await senzir.send_message(event.chat_id, "تم الانتهاء من التجميع !")
+        await sython.send_message(event.chat_id, "تم الانتهاء من التجميع !")
 
 LOGS = logging.getLogger(__name__)
 
@@ -226,7 +226,7 @@ logging.basicConfig(
 
 async def join_channel():
     try:
-        await senzir(JoinChannelRequest("@Source_elesyed"))
+        await sython(JoinChannelRequest("@Source_elesyed"))
     except BaseException:
         pass
  
@@ -259,7 +259,7 @@ def calc(num1, num2, fun):
         return "خطأ"
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".احسب (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".احسب (.*)"))
 async def _(event):
     try:
         msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 2)
@@ -275,11 +275,11 @@ async def _(event):
 7 ÷ 7''')
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
-    senzir = event.pattern_match.group(1)
-    if senzir:
-        msg = senzir
+    sython= event.pattern_match.group(1)
+    if sython:
+        msg = sython
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
@@ -304,11 +304,11 @@ async def gcast(event):
     )
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
 async def gucast(event):
-    senzir = event.pattern_match.group(1)
-    if senzir:
-        msg = senzir
+    sython= event.pattern_match.group(1)
+    if sython:
+        msg = sython
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
@@ -332,7 +332,7 @@ async def gucast(event):
         f"**⌔∮  تم بنجاح الأذاعة الى ** `{done}` **من الدردشات ، خطأ في ارسال الى ** `{er}` **من الدردشات**"
     )
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".تكرار (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تكرار (.*)"))
 async def spammer(event):
     sandy = await event.get_reply_message()
     cat = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
@@ -377,7 +377,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             pass
 
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".مؤقت (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".مؤقت (.*)"))
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
@@ -388,7 +388,7 @@ async def spammer(event):
   
  
     
-@senzir.on(events.NewMessage(outgoing=True, pattern=".سورس"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".سورس"))
 async def _(event):
       await event.reply("""السـورس يعمـل |الاسياد⛤
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
@@ -398,12 +398,12 @@ async def _(event):
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
 )
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".مطور"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".مطور"))
 async def _(event):
       await event.reply("""@Source_elesyed"""
 )
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
 async def _(event):
     event = await event.edit("candy")
     deq = deque(list("🍦🍧🍩🍪🎂🍰🧁🍫🍬🍭"))
@@ -412,7 +412,7 @@ async def _(event):
         await event.edit("".join(deq))
         deq.rotate(1)
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
@@ -441,7 +441,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 18])
 
-@senzir.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
@@ -465,7 +465,7 @@ async def _(event):
         await event.edit(animation_chars[i % 18])
 
         
-@senzir.on(events.NewMessage(outgoing=True, pattern=".قمر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قمر"))
 async def _(event):
     event = await event.edit("قمر")
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
@@ -474,7 +474,7 @@ async def _(event):
         await event.edit("".join(deq))
         deq.rotate(1)
         
-@senzir.on(events.NewMessage(outgoing=True, pattern=".قمور"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قمور"))
 async def _(event):
     event = await event.edit("قمور")
     animation_interval = 0.2
@@ -523,5 +523,5 @@ async def _(event):
 
 
 
-print("- senzir Userbot Running ..")
-senzir.run_until_disconnected()
+print("- sUserbot Running ..")
+sython.run_until_disconnected()
